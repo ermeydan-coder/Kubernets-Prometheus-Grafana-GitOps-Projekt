@@ -1,0 +1,29 @@
+    1  kubectl cluster-info
+    2  kubectl create namespace prometheus
+        cd Prometheus-Grafana/
+    3  kubectl apply -f ClusterRole.yml 
+        kubectl get po
+        kubectl get ns
+        kubectl get po -n prometheus
+    4  kubectl apply -f ConfigMap.yml
+    5  kubectl apply -f PrometheusDeployment.yml 
+        kubectl get po
+        kubectl get po -n prometheus
+        kubectl exec -it prometheus-deployment-6fc48d76-4vswn -n prometheus -- sh
+    6  kubectl apply -f ServiceNodePort.yml 
+        kubectl get po
+        kubectl get po -n prometheus
+        kubectl get svc -n prometheus
+        Master/Worker 32000 portunu aç ve public Ip ile bağlan
+    7  sudo apt-get install -y apt-transport-https
+    8  sudo apt-get install -y software-properties-common wget
+    9  wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+    10  echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+    11  sudo apt-get update
+    12  sudo apt-get install grafana
+    13  sudo apt-get update
+    14  sudo apt-get install grafana
+    15  sudo systemctl daemon-reload
+    16  sudo systemctl start grafana-server
+    17  sudo systemctl status grafana-server
+        yüklenen instance'in Public Ip'si ile bağlan.
